@@ -3,10 +3,11 @@ package com.loop614.jvstar.star.domain.editor;
 import com.loop614.jvstar.rating.entity.Rating;
 import com.loop614.jvstar.star.entity.Star;
 import com.loop614.jvstar.star.repository.StarRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class StarEditorImpl implements StarEditor {
     private final StarRepository starRepository;
 
