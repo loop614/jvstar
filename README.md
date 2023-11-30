@@ -5,7 +5,7 @@
 - maven, make
 
 ### Status
-- early setup
+- setup
 
 ### Quick Start
 ```console
@@ -15,3 +15,4 @@ $ make run
 ```console
 $ make test
 ```
+- [open](http://localhost:6969/star/user/1/object/1)

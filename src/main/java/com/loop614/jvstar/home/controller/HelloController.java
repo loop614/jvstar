@@ -12,6 +12,6 @@ public class HelloController {
 
     @GetMapping("/ping")
     public String ping() {
-        return "Pong !";
+        return "pong 2";
     }
 }

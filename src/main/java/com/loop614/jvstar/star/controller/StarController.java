@@ -9,25 +9,18 @@ import java.util.Optional;
 
 @RestController
 public class StarController {
-    private final StarService starFacade;
+    private final StarService starService;
 
     @Autowired
-    public StarController(StarService starFacade) {
-        this.starFacade = starFacade;
+    public StarController(StarService starService) {
+        this.starService = starService;
     }
 
-    @GetMapping("/star")
-    public Iterable<Star> index() {
-        return this.starFacade.findAll();
-    }
-
-    @GetMapping("/star/{starId}")
-    public Optional<Star> index(@PathVariable("starId") Integer id) {
-        return this.starFacade.findById(id);
-    }
-
-    @PostMapping("/star/new")
-    public Star index(@RequestBody Star star) {
-        return this.starFacade.save(star);
+    @GetMapping("/star/user/{userId}/object/{objectId}")
+    public Optional<Star> index(
+            @PathVariable("userId") String userId,
+            @PathVariable("objectId") String objectId
+    ) {
+        return this.starService.findStar(userId, objectId);
     }
 }

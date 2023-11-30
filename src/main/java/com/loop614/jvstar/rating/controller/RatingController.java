@@ -5,29 +5,17 @@ import com.loop614.jvstar.rating.entity.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 public class RatingController {
-    private final RatingService ratingFacade;
+    private final RatingService ratingService;
 
     @Autowired
-    public RatingController(RatingService ratingFacade) {
-        this.ratingFacade = ratingFacade;
-    }
-
-    @GetMapping("/rating")
-    public Iterable<Rating> index() {
-        return this.ratingFacade.findAll();
-    }
-
-    @GetMapping("/rating/{ratingId}")
-    public Optional<Rating> index(@PathVariable("ratingId") Integer id) {
-        return this.ratingFacade.findById(id);
+    public RatingController(RatingService ratingService) {
+        this.ratingService = ratingService;
     }
 
     @PostMapping("/rating/new")
     public Rating index(@RequestBody Rating rating) {
-        return this.ratingFacade.save(rating);
+        return this.ratingService.save(rating);
     }
 }

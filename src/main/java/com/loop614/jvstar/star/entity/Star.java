@@ -7,50 +7,54 @@ import jakarta.persistence.*;
 public class Star {
     @Id
     @SequenceGenerator(name = "star_id", sequenceName = "star_id", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "star_id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "star_id")
     private int id;
-    private String name;
+    private Double value;
+    private Integer count;
+    private String userId;
+    private String objectId;
 
     public Star() {
     }
 
-    public Star(String name) {
-        this.name = name;
-    }
-
-    public Star(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Star(String userId, String objectId) {
+        this.userId = userId;
+        this.objectId = objectId;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getName() {
-        return name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getObjectId() {
+        return objectId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Star Rating = (Star) o;
-
-        return name.equals(Rating.name);
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
-    @Override
-    public int hashCode() {
-        return name.hashCode();
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }

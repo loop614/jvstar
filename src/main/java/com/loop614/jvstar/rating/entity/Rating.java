@@ -7,50 +7,56 @@ import jakarta.persistence.*;
 public class Rating {
     @Id
     @SequenceGenerator(name = "rating_id", sequenceName = "rating_id", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "rating_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rating_id")
     private int id;
-    private String name;
+    private Double value;
+    private String userId;
+    private String customerId;
+    private String objectId;
 
     public Rating() {
     }
 
-    public Rating(String name) {
-        this.name = name;
-    }
-
-    public Rating(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Rating(Double value, String userId, String customerId, String objectId) {
+        this.value = value;
+        this.userId = userId;
+        this.customerId = customerId;
+        this.objectId = objectId;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Double getValue() {
+        return value;
     }
 
-    public String getName() {
-        return name;
+    public void setValue(Double value) {
+        this.value = value;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserId() {
+        return userId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Rating Rating = (Rating) o;
-
-        return name.equals(Rating.name);
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    @Override
-    public int hashCode() {
-        return name.hashCode();
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 }
