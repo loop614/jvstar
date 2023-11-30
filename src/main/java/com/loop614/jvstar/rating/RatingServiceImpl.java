@@ -11,8 +11,8 @@ public class RatingServiceImpl implements RatingService {
     private final RatingRepository ratingRepository;
 
     public RatingServiceImpl(
-            StarService starService,
-            RatingRepository ratingRepository
+        StarService starService,
+        RatingRepository ratingRepository
     ) {
         this.starService = starService;
         this.ratingRepository = ratingRepository;
