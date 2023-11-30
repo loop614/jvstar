@@ -1,13 +1,13 @@
 package com.loop614.jvstar.rating.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "RATING")
 public class Rating {
     @Id
+    @SequenceGenerator(name = "rating_id", sequenceName = "rating_id", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "rating_id")
     private int id;
     private String name;
 

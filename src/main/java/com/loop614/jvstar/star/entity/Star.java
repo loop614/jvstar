@@ -1,13 +1,13 @@
 package com.loop614.jvstar.star.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "STAR")
 public class Star {
     @Id
+    @SequenceGenerator(name = "star_id", sequenceName = "star_id", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "star_id")
     private int id;
     private String name;
 
