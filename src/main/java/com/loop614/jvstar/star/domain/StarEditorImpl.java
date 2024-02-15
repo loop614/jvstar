@@ -1,4 +1,4 @@
-package com.loop614.jvstar.star.domain.editor;
+package com.loop614.jvstar.star.domain;
 
 import com.loop614.jvstar.rating.entity.Rating;
 import com.loop614.jvstar.star.entity.Star;
@@ -22,17 +22,17 @@ public class StarEditorImpl implements StarEditor {
         Star star = starOptional.orElseGet(Star::new);
 
         Double oldValue = star.getValue();
-            if (oldValue == null) {
+        if (oldValue == null) {
             oldValue = 0.0;
         }
         Integer oldCount = star.getCount() == null ? 0 : star.getCount();
         Integer newCount = oldCount + 1;
 
         Double newValue = ((oldValue * oldCount) + rating.getValue()) / newCount;
-            star.setCount(newCount);
-            star.setValue(newValue);
+        star.setCount(newCount);
+        star.setValue(newValue);
 
-            if (star.getId() == 0) {
+        if (star.getId() == 0) {
             star.setObjectId(rating.getObjectId());
             star.setUserId(rating.getUserId());
         }

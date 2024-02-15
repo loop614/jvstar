@@ -1,7 +1,7 @@
 package com.loop614.jvstar.star;
 
 import com.loop614.jvstar.rating.entity.Rating;
-import com.loop614.jvstar.star.domain.editor.StarEditor;
+import com.loop614.jvstar.star.domain.StarEditor;
 import com.loop614.jvstar.star.entity.Star;
 import com.loop614.jvstar.star.repository.StarRepository;
 import org.springframework.stereotype.Service;

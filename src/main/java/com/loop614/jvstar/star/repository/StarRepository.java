@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface StarRepository extends CrudRepository<Star, Integer> {
-    Optional<Star> findByUserIdAndObjectId(String name, String email);
+    Optional<Star> findByUserIdAndObjectId(String userId, String objectId);
 }

@@ -2,7 +2,6 @@ package com.loop614.jvstar.star.controller;
 
 import com.loop614.jvstar.star.StarService;
 import com.loop614.jvstar.star.entity.Star;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,7 +10,6 @@ import java.util.Optional;
 public class StarController {
     private final StarService starService;
 
-    @Autowired
     public StarController(StarService starService) {
         this.starService = starService;
     }

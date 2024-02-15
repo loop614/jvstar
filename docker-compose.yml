@@ -5,10 +5,6 @@ services:
     build: ./
     ports:
       - 12345:8080
-    environment:
-      - POSTGRES_DB=jvstar
-      - POSTGRES_PASSWORD=jvstar
-      - POSTGRES_USER=jvstar
     networks:
       - spring-postgres
     depends_on:
@@ -17,7 +13,6 @@ services:
 
   jvstar_postgres:
     image: postgres
-    restart: always
     ports:
       - 5432:5432
     volumes:

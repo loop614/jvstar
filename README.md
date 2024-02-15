@@ -9,10 +9,7 @@
 
 ### Quick Start
 ```console
-$ make db
-$ make run
-```
-```console
-$ make test
+$ docker compose up jvstar_postgres
+$ ./mvnw spring-boot:run
 ```
 - [open](http://localhost:6969/star/user/1/object/1)
