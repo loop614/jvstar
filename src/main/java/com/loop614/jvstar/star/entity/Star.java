@@ -1,17 +1,22 @@
 package com.loop614.jvstar.star.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "STAR")
 public class Star {
     @Id
-    @SequenceGenerator(name = "star_id", sequenceName = "star_id", allocationSize = 1)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "star_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Double value;
-    private Integer count;
+
+    private BigDecimal value;
+
+    private Long count;
+
     private String userId;
+
     private String objectId;
 
     public Star() {
@@ -42,19 +47,19 @@ public class Star {
         this.objectId = objectId;
     }
 
-    public Double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 
-    public Integer getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 }

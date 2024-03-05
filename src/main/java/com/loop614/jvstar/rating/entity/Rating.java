@@ -1,38 +1,42 @@
 package com.loop614.jvstar.rating.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "RATING")
 public class Rating {
     @Id
-    @SequenceGenerator(name = "rating_id", sequenceName = "rating_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rating_id")
-    private int id;
-    private Double value;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private BigDecimal value;
+
     private String userId;
+
     private String customerId;
+
     private String objectId;
 
-    public Rating() {
-    }
+    public Rating() {}
 
-    public Rating(Double value, String userId, String customerId, String objectId) {
+    public Rating(BigDecimal value, String userId, String customerId, String objectId) {
         this.value = value;
         this.userId = userId;
         this.customerId = customerId;
         this.objectId = objectId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public Double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 

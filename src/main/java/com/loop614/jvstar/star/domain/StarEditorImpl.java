@@ -5,6 +5,7 @@ import com.loop614.jvstar.star.entity.Star;
 import com.loop614.jvstar.star.repository.StarRepository;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @Component
@@ -21,14 +22,17 @@ public class StarEditorImpl implements StarEditor {
 
         Star star = starOptional.orElseGet(Star::new);
 
-        Double oldValue = star.getValue();
+        BigDecimal oldValue = star.getValue();
         if (oldValue == null) {
-            oldValue = 0.0;
+            oldValue = BigDecimal.valueOf(0.0);
         }
-        Integer oldCount = star.getCount() == null ? 0 : star.getCount();
-        Integer newCount = oldCount + 1;
+        Long oldCount = star.getCount() == null ? 0 : star.getCount();
+        Long newCount = oldCount + 1;
 
-        Double newValue = ((oldValue * oldCount) + rating.getValue()) / newCount;
+        BigDecimal newValue = ((oldValue.multiply(BigDecimal.valueOf(oldCount)))
+            .add(rating.getValue()))
+            .divide(BigDecimal.valueOf(newCount));
+
         star.setCount(newCount);
         star.setValue(newValue);
 
